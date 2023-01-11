@@ -2,7 +2,8 @@ package produce
 
 import (
 	"context"
-	apikinetic "example/microservices/gen/go/api/v1"
+
+	apikinetic "github.com/maiano/grpc-example/kinetic/gen/go/api/v1"
 )
 
 type KineticEnergyServer struct {

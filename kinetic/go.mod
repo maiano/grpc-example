@@ -1,4 +1,4 @@
-module example/microservices
+module github.com/maiano/grpc-example/kinetic
 
 go 1.18
 

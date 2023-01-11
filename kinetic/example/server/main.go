@@ -1,10 +1,11 @@
 package main
 
 import (
-	"example/microservices/example/pkg/produce"
-	apikinetic "example/microservices/gen/go/api/v1"
 	"log"
 	"net"
+
+	"github.com/maiano/grpc-example/kinetic/example/pkg/produce"
+	apikinetic "github.com/maiano/grpc-example/kinetic/gen/go/api/v1"
 
 	"google.golang.org/grpc"
 )
