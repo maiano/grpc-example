@@ -4,8 +4,8 @@ import (
 	"log"
 	"net"
 
-	"github.com/maiano/grpc-example/kinetic/example/pkg/produce"
 	apikinetic "github.com/maiano/grpc-example/kinetic/gen/go/api/v1"
+	"github.com/maiano/grpc-example/kinetic/pkg/produce"
 
 	"google.golang.org/grpc"
 )
