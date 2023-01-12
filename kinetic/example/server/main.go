@@ -5,7 +5,7 @@ import (
 	"net"
 
 	apikinetic "github.com/maiano/grpc-example/kinetic/gen/go/api/v1"
-	"github.com/maiano/grpc-example/kinetic/pkg/produce"
+	"github.com/maiano/grpc-example/kinetic/internal/produce"
 
 	"google.golang.org/grpc"
 )
