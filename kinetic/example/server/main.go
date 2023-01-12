@@ -5,13 +5,13 @@ import (
 	"net"
 
 	apikinetic "github.com/maiano/grpc-example/kinetic/gen/go/api/v1"
-	"github.com/maiano/grpc-example/kinetic/internal/produce"
+	v1 "github.com/maiano/grpc-example/kinetic/internal/grpc/v1"
 
 	"google.golang.org/grpc"
 )
 
 func main() {
-	listener, err := net.Listen("tcp", ":8080")
+	listener, err := net.Listen("tcp", "localhost:8080")
 
 	if err != nil {
 		log.Fatalf("failed to listen %v\n", err)
@@ -19,9 +19,9 @@ func main() {
 
 	server := grpc.NewServer()
 
-	e := &produce.KineticEnergyServer{}
+	s := &v1.KineticEnergyServer{}
 
-	apikinetic.RegisterKineticServiceServer(server, e)
+	apikinetic.RegisterKineticServiceServer(server, s)
 
 	if err := server.Serve(listener); err != nil {
 		log.Fatalf("failed to serve %v\n", err)

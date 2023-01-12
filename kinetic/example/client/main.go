@@ -16,21 +16,26 @@ func main() {
 	}
 }
 func run() error {
-	connectTo := "127.0.0.1:8080"
+	connectTo := "localhost:8080"
 	conn, err := grpc.Dial(connectTo, grpc.WithBlock(), grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		return fmt.Errorf("failed to connect on %s: %w", connectTo, err)
 	}
+	defer conn.Close()
+
 	log.Println("connected to", connectTo)
 
-	e := apikinetic.NewKineticServiceClient(conn)
-	if _, err := e.Kinetic(context.Background(), &apikinetic.KineticRequest{
+	client := apikinetic.NewKineticServiceClient(conn)
+
+	res, err := client.Kinetic(context.Background(), &apikinetic.KineticRequest{
 		Mass:     1,
 		Velocity: 3,
-	}); err != nil {
-		return fmt.Errorf("failed to produce: %w", err)
+	})
+
+	if err != nil {
+		return fmt.Errorf("failed to calculate energy value: %w", err)
 	}
 
-	log.Println("ok")
+	fmt.Printf("energy value is %v\n", res.Result)
 	return nil
 }
