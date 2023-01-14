@@ -13,7 +13,7 @@ type KineticEnergyServer struct {
 
 func (s *KineticEnergyServer) Kinetic(_ context.Context, req *apikinetic.KineticRequest) (*apikinetic.KineticResponse, error) {
 
-	log.Printf("got a request: m = %.02f, v = %.02f\n", req.Mass, req.Velocity)
-	result := req.Mass * req.Velocity * req.Velocity / 2
+	log.Printf("got a request: m = %.02f, v = %.02f\n", req.Data.Mass, req.Data.Velocity)
+	result := req.Data.Mass * req.Data.Velocity * req.Data.Velocity / 2
 	return &apikinetic.KineticResponse{Result: result}, nil
 }

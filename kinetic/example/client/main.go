@@ -28,8 +28,10 @@ func run() error {
 	client := apikinetic.NewKineticServiceClient(conn)
 
 	res, err := client.Kinetic(context.Background(), &apikinetic.KineticRequest{
-		Mass:     1,
-		Velocity: 3,
+		Data: &apikinetic.Data{
+			Mass:     1,
+			Velocity: 3,
+		},
 	})
 
 	if err != nil {

@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: api/v1/kinetic.proto
+// source: api/v1/kinetic_service.proto
 
 package apikinetic
 
@@ -101,5 +101,5 @@ var KineticService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "api/v1/kinetic.proto",
+	Metadata: "api/v1/kinetic_service.proto",
 }
